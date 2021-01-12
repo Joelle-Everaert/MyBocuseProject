@@ -15,7 +15,7 @@ $requestAttendanceMorning->execute(array($today, $currentTime));
 }
 
 if (!empty($_POST['cleEvening'])) {
-    $requestAttendanceEvening = $bdd->prepare('UPDATE attendanceTimes SET attendance_evening=? WHERE id_time="21"');
+    $requestAttendanceEvening = $bdd->prepare('UPDATE attendanceTimes SET attendance_evening=? WHERE id_time="22"');
 
     $requestAttendanceEvening->execute(array($currentTime));
 

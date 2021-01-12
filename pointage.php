@@ -29,7 +29,7 @@ try {
 
 <body>
     <div class="attendanceSec">
-        <div class="date">
+        <div class="date">w
             <p>coucou</p>
         </div>
         <div class="attendances">
