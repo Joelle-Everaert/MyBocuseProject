@@ -4,6 +4,7 @@ session_start();
 //----------------------BASE DE DONNEE COONEXION-----------------------------
 include('secret.php');
 
+
     try{
         $bdd= new PDO("mysql:host=localhost;dbname=MyBocus;charset=utf8", "$user", "$pwd", [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
     }
@@ -11,6 +12,7 @@ include('secret.php');
     {
     die('Erreur : ' . $e->getMessage());
 }
+
 
 ?>
 
@@ -30,6 +32,7 @@ include('secret.php');
             <div class="titre_soustitre">
                 <h1 class="titre">Welcome to your MyBocuse space</h1>
                 <h2 class="soustitre">please sign in to enter the website.</h2>
+                <a href="user.php">TEST</a>
             </div>
             <div>
             <?php
@@ -41,8 +44,10 @@ include('secret.php');
                 $data = $request->fetch(); 
                 
             if(!empty($data)){
-            if($data['password'] == $_POST['password']){
+            if(password_verify($_POST['password'], $data['password'])){ // attention
                 $_SESSION['SessionOK'] = true;
+                $_SESSION['email'] = $data['email'];
+
             }
             }
         }

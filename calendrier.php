@@ -1,3 +1,19 @@
+<?php
+session_start();
+
+include('secret.php');
+
+
+    try{
+        $bdd= new PDO("mysql:host=localhost;dbname=MyBocus;charset=utf8", "$user", "$pwd", [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+    }
+    catch (Exception $e)
+    {
+    die('Erreur : ' . $e->getMessage());
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,25 +27,25 @@
     
 <button class="addWatch">Add a watch</button>
 
-
 <?php
+// $_SESSION['email'] ='mouettemouette@mybocus.org';  // a suuprimer une fois le spage lié
+$req = $bdd->prepare('SELECT id_user FROM Students WHERE email = ?');
+$req->execute([
+    $_SESSION['email']
+]);
+$data = $req->fetch(); 
 
-    include('secret.php');
+$req-> closeCursor();  
 
-    try{
-        $bdd= new PDO("mysql:host=localhost;dbname=MyBocus;charset=utf8", "$user", "$pwd", [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-    }
-    catch (Exception $e)
-    {
-    die('Erreur : ' . $e->getMessage());
-}
+$idUser = $data['id_user'];
 
 if(!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['description'])){
-    $req = $bdd->prepare('INSERT INTO watch_recipe (title_watch, date, description) VALUES (?, ?, ?)') or die(print_r($bdd->errorInfo()));
+    $req = $bdd->prepare('INSERT INTO watch_recipe (FK_id_user, title_watch, date, description) VALUES (?, ?, ?, ?)') or die(print_r($bdd->errorInfo()));
     $req->execute([
+        $idUser,
         strip_tags(trim($_POST['title_watch'])),
         strip_tags(trim($_POST['date'])),
-        strip_tags(trim($_POST['description']))
+        strip_tags(trim($_POST['description'])),
     ]);
     $req-> closeCursor();  
 ?>
@@ -69,6 +85,7 @@ if(!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['des
 <?php
 }
 ?>
+
 </body>
 <!-- titre - date - explication -->
 
