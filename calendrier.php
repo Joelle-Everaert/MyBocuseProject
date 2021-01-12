@@ -28,7 +28,7 @@ include('secret.php');
 <button class="addWatch">Add a watch</button>
 
 <?php
-// $_SESSION['email'] ='mouettemouette@mybocus.org';  // a suuprimer une fois le spage lié
+// REcupéré session de calendrier
 $req = $bdd->prepare('SELECT id_user FROM Students WHERE email = ?');
 $req->execute([
     $_SESSION['email']
@@ -49,7 +49,7 @@ if(!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['des
     ]);
     $req-> closeCursor();  
 ?>
-    <h1> C'est ok </h1>
+    <h1> C'est ok </h1> 
 
 <?php 
     

@@ -61,3 +61,59 @@ input[type=submit]:hover {
     background-color: rgba(41, 41, 41, 0.493);
     color: white;
 }
+
+*{
+    font-family: 'Playfair Display',
+    serif;
+}
+
+
+.attendanceSec {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+.date {
+    display: flex;
+    justify-content: center;
+}
+
+.attendances {
+    display: flex;
+    justify-content: space-around ;
+}
+
+.attendanceLeft,
+.attendanceRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 0.5px solid black;
+    border-radius: 15px;
+    padding: 0 10px;
+}
+
+.attendanceRight>p:nth-child(1),
+.attendanceLeft>p:nth-child(1) {
+    font-size: 20px;
+}
+
+.attendanceRight>button,
+.attendanceLeft>button {
+    border: 1px solid black;
+    background-color: transparent;
+    border-radius: 5px;
+}
+
+.attendanceRight>button:hover,
+.attendanceLeft>button:hover {
+
+    background-color: lightgray;
+}
+
+.attendanceRight>p:nth-child(3),
+.attendanceLeft>p:nth-child(3) {
+     font-size: 12px;
+}
