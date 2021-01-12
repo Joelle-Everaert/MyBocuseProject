@@ -45,3 +45,12 @@ buttonAttendanceRight.addEventListener("click", function (e) {
         })
     securedTimeEvening = "";
 });
+
+// AJOUT RECETTE
+let button = document.querySelector(".addWatch");
+let form = document.querySelector(".form-popup");
+console.log('button:', button)
+
+button.addEventListener("click", function(e) {
+    form.style.display = "block";
+})

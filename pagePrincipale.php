@@ -13,7 +13,6 @@ include('secret.php');
     die('Erreur : ' . $e->getMessage());
 }
 
-
 ?>
 
 <!DOCTYPE html>
@@ -32,25 +31,25 @@ include('secret.php');
             <div class="titre_soustitre">
                 <h1 class="titre">Welcome to your MyBocuse space</h1>
                 <h2 class="soustitre">please sign in to enter the website.</h2>
-                <a href="user.php">TEST</a>
-            </div>
-            <div>
-            <?php
-            if(isset($_POST['email']) && isset($_POST['password'])){
-                $request = $bdd->prepare('SELECT email, password FROM Students WHERE email = ?') or die(print_r($bdd->errorInfo()));
-                $request->execute([
-                    $_POST['email']  
-                ]);
-                $data = $request->fetch(); 
                 
-            if(!empty($data)){
-            if(password_verify($_POST['password'], $data['password'])){ // attention
-                $_SESSION['SessionOK'] = true;
-                $_SESSION['email'] = $data['email'];
+            </div>
 
-            }
-            }
+<?php
+
+if(isset($_POST['email']) && isset($_POST['password'])){
+    $request = $bdd->prepare('SELECT email, password FROM Students WHERE email = ?') or die(print_r($bdd->errorInfo()));
+    $request->execute([
+        $_POST['email']  
+    ]);
+    $data = $request->fetch(); 
+                
+    if(!empty($data)){
+        if(password_verify($_POST['password'], $data['password'])){ // attention
+            $_SESSION['SessionOK'] = true;
+            $_SESSION['email'] = $data['email'];
         }
+    }
+}
 
 if($_SESSION){
     header("Location: ./welcome.php");
@@ -58,12 +57,12 @@ if($_SESSION){
 }else{
     include("./form.php");
 }
-?>
 
-            </div>
-        </div>
-        <div class="images">
-            <img src="./assets/img/loginimage.jpg" alt="" width="500px" height="730px">
+?>
+            
+    </div>
+    <div class="images">
+        <img src="./assets/img/loginimage.jpg" alt="" width="500px" height="730px">
         </div>
     </section>
 </body>

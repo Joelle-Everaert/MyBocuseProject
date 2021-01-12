@@ -25,7 +25,7 @@ die('Erreur : ' . $e->getMessage());
     <button><a href="logout.php">LOG OUT</a></button>
 
     <div class="attendanceSec">
-        <div class="date">w
+        <div class="date">
             <p>coucou</p>
         </div>
         <div class="attendances">
@@ -43,19 +43,19 @@ die('Erreur : ' . $e->getMessage());
 
     </div>
 
-    <button class="addWatch">Add a watch</button>
-    <?php
-// REcupéré session de calendrier
-$req = $bdd->prepare('SELECT id_user FROM Students WHERE email = ?');
-$req->execute([
-    $_SESSION['email']
-    
-]);
-$data = $req->fetch(); 
+    <button class="addWatch">Add a recipe</button>
 
-$req-> closeCursor();  
+<?php
+// Recupéré session de calendrier
+    $req = $bdd->prepare('SELECT id_user FROM Students WHERE email = ?');
+    $req->execute([
+        $_SESSION['email']
+    ]);
+    $data = $req->fetch(); 
 
-$_SESSION['idUser'] = $data['id_user'];
+    $req-> closeCursor();  
+
+    $_SESSION['idUser'] = $data['id_user'];
 
 if(!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['description'])){
     $req = $bdd->prepare('INSERT INTO watch_recipe (FK_id_user, title_watch, date, description) VALUES (?, ?, ?, ?)') or die(print_r($bdd->errorInfo()));
@@ -67,17 +67,16 @@ if(!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['des
     ]);
     $req-> closeCursor();  
 ?>
-    <h1> C'est ok </h1>
+
+    <h1> C'est encoder ;-)</h1>
 
 <?php 
     
-    
 }else{
-    ?> 
+?> 
 
     <div class="form-popup" id="myForm" style="display:none">
-        
-    <form action="" method="POST">
+        <form action="" method="POST">
             <h1>Add a watch</h1>
 
             <label for="email">Title</label>
@@ -93,15 +92,7 @@ if(!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['des
         </form>
     </div>
     <script src="pointage.js"></script>
-    <script>
-        let button = document.querySelector(".addWatch");
-        let form = document.querySelector(".form-popup");
-        console.log('button:', button)
-
-        button.addEventListener("click", function(e) {
-            form.style.display = "block";
-        })
-    </script>
+    
 <?php
 }
 ?>

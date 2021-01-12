@@ -25,40 +25,40 @@ include('secret.php');
 
 <body>
     
-<button class="addWatch">Add a watch</button>
+<button class="addWatch">Add a recipe</button>
 
 <?php
-// REcupéré session de calendrier
-$req = $bdd->prepare('SELECT id_user FROM Students WHERE email = ?');
-$req->execute([
-    $_SESSION['email']
-]);
-$data = $req->fetch(); 
+// Recupéré session de calendrier
+    $req = $bdd->prepare('SELECT id_user FROM Students WHERE email = ?');
+    $req->execute([
+        $_SESSION['email']
+    ]);
+    $data = $req->fetch(); 
 
-$req-> closeCursor();  
+    $req-> closeCursor();  
 
-$idUser = $data['id_user'];
+    $_SESSION['idUser'] = $data['id_user'];
 
 if(!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['description'])){
     $req = $bdd->prepare('INSERT INTO watch_recipe (FK_id_user, title_watch, date, description) VALUES (?, ?, ?, ?)') or die(print_r($bdd->errorInfo()));
     $req->execute([
-        $idUser,
+        $_SESSION['idUser'],
         strip_tags(trim($_POST['title_watch'])),
         strip_tags(trim($_POST['date'])),
         strip_tags(trim($_POST['description'])),
     ]);
     $req-> closeCursor();  
 ?>
-    <h1> C'est ok </h1> 
+
+    <h1> C'est encoder ;-)</h1>
 
 <?php 
     
 }else{
-    ?> 
+?> 
 
     <div class="form-popup" id="myForm" style="display:none">
-        
-    <form action="" method="POST">
+        <form action="" method="POST">
             <h1>Add a watch</h1>
 
             <label for="email">Title</label>
@@ -73,20 +73,13 @@ if(!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['des
             <button type="submit" class="btn">Enter</button>
         </form>
     </div>
-    <script>
-        let button = document.querySelector(".addWatch");
-        let form = document.querySelector(".form-popup");
-        console.log('button:', button)
-
-        button.addEventListener("click", function(e) {
-            form.style.display = "block";
-        })
-    </script>
+    <script src="pointage.js"></script>
+    
 <?php
 }
 ?>
 
 </body>
 <!-- titre - date - explication -->
-
+<script src="pointage.js"></script>
 </html>

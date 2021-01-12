@@ -17,7 +17,7 @@ $currentTime = date("H:i:s");
 
 if (!empty($_POST['cleMorning'])){
 $requestAttendanceMorning = $bdd->prepare('INSERT INTO attendanceTimes(fk_id_user, date, attendance_morning) VALUES(?,?,?)'); 
-$requestAttendanceMorning->execute(array($_SESSION['idUser'] , $today, $currentTime));
+$requestAttendanceMorning->execute(array($_SESSION['idUser'], $today, $currentTime));
 }
 
 if (!empty($_POST['cleEvening'])) {
