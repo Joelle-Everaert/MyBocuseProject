@@ -50,34 +50,7 @@ try {
 
     </div>
 
-    <script>
-        let dateDiv = document.querySelector(".date");
-        let today = new Date();
-        var options = {
-            weekday: "long",
-            year: "numeric",
-            month: "long",
-            day: "numeric"
-        };
-        dateDiv.innerHTML = today.toLocaleDateString(undefined, options);
-
-        let buttonAttendanceLeft = document.querySelector(".buttonAttendanceLeft");
-        let buttonAttendanceRight = document.querySelector(".buttonAttendanceRight");
-
-        buttonAttendanceLeft.addEventListener("click", function(e) {
-            buttonAttendanceLeft.innerHTML = today.toLocaleTimeString([], {
-                hour: '2-digit',
-                minute: '2-digit'
-            });
-        });
-
-        buttonAttendanceRight.addEventListener("click", function(e) {
-            buttonAttendanceRight.innerHTML = today.toLocaleTimeString([], {
-                hour: '2-digit',
-                minute: '2-digit'
-            });
-        });
-    </script>
+    <script src="./pointage.js"></script>
 </body>
 
 </html>
