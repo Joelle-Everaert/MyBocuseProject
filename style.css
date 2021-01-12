@@ -1,0 +1,63 @@
+#loginpage {
+    background-color: rgba(0, 0, 0, 0.986);
+}
+.logincontainer {
+    padding-left: 10px;
+}
+.titre_soustitre {
+    color: white;
+    width: 600px;
+}
+.titre {
+    font-size: 70px;
+}
+.soustitre {
+    font-size: 15px;
+    margin: 0;
+    
+}
+.header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+label{
+    color: white;
+}
+
+/* LOGIN FORM  */
+
+#container{
+    width:400px;
+    padding-top: 5%;
+}
+form {
+    width:100%;
+}
+label {
+    color: white;
+}
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* lOGIN BUTTON  */
+
+input[type=submit] {
+    background-color: rgba(0, 0, 0, 0.986);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: 1px solid white;
+    cursor: pointer;
+    width: 100%;
+}
+input[type=submit]:hover {
+    background-color: rgba(41, 41, 41, 0.493);
+    color: white;
+}
