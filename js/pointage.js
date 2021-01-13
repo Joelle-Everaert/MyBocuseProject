@@ -15,7 +15,7 @@ let buttonAttendanceRight = document.querySelector(".buttonAttendanceRight");
 buttonAttendanceLeft.addEventListener("click", function (e) {
     let securedTimeMorning = new FormData();
     securedTimeMorning.append("cleMorning", "secret");
-    fetch("./sendingTime.php", {
+    fetch("./php/sendingTime.php", {
             method: 'POST',
             body: securedTimeMorning
         })
@@ -32,7 +32,7 @@ buttonAttendanceLeft.addEventListener("click", function (e) {
 buttonAttendanceRight.addEventListener("click", function (e) {
     let securedTimeEvening = new FormData();
     securedTimeEvening.append("cleEvening", "secret");
-    fetch("./sendingTime.php", {
+    fetch("./php/sendingTime.php", {
             method: 'POST',
             body: securedTimeEvening
         })

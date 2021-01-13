@@ -7,7 +7,7 @@ button.addEventListener("click", function(e) {
     form.style.display = "block";
 })
 
-let recipeSubmitBtn = document.querySelector('btn');
+let recipeSubmitBtn = document.querySelector('.btn');
 
 recipeSubmitBtn.addEventListener('click', function(e) {
     form.style.display = "none";
