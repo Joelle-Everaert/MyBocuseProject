@@ -2,6 +2,8 @@
 session_start();
 ?>
 
+/*---------------------------------------------------------------*
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,10 +50,10 @@ session_start();
                 </div>
             </div>
             <div class="profileContent">
-                <h3>22ans</h3>
-                <h3>Bocuse 1.5</h3>
+                <h3><?php echo $_SESSION['birthday']?></h3>
+                <h3><?php echo $_SESSION['promo']?></h3>
                 <h3>+32 000 00 00</h3>
-                <h3> Ericlambda01@gmail.com</h3>
+                <h3> <?php echo $_SESSION['email']?></h3>
             </div>
         </div>
     </section>
