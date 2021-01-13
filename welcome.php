@@ -23,26 +23,11 @@ die('Erreur : ' . $e->getMessage());
 <body>
     <p>c'est ok </p>
     <button><a href="logout.php">LOG OUT</a></button>
-
-    <div class="attendanceSec">
-        <div class="date">
-            <p>coucou</p>
-        </div>
-        <div class="attendances">
-            <div class="attendanceLeft">
-                <p>Morning</p>
-                <button class="buttonAttendanceLeft"> 09:00 </button>
-                <p>Active from 08:45 to 09:00.</p>
-            </div>
-            <div class="attendanceRight">
-                <p>Evening</p>
-                <button class="buttonAttendanceRight"> 17:00 </button>
-                <p>Active from 17/00 to 21:00.</p>
-            </div>
-        </div>
-
-    </div>
-
+<?php
+if($_SESSION['account_type'] == 'student'){
+    include('pointage.php');
+}
+?>
     <button class="addWatch">Add a recipe</button>
 
 <?php
@@ -65,10 +50,13 @@ if(!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['des
         strip_tags(trim($_POST['date'])),
         strip_tags(trim($_POST['description'])),
     ]);
+    $title_recipe = $_POST['title_watch'];
     $req-> closeCursor();  
+
+    echo "<h1> Ta recette \" ". $title_recipe ." \" est enrigistrée </h1>";
 ?>
 
-    <h1> C'est encoder ;-)</h1>
+    
 
 <?php 
     

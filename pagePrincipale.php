@@ -37,7 +37,7 @@ include('secret.php');
 <?php
 
 if(isset($_POST['email']) && isset($_POST['password'])){
-    $request = $bdd->prepare('SELECT email, password FROM Students WHERE email = ?') or die(print_r($bdd->errorInfo()));
+    $request = $bdd->prepare('SELECT email, password, account_type FROM Students WHERE email = ?') or die(print_r($bdd->errorInfo()));
     $request->execute([
         $_POST['email']  
     ]);
@@ -47,6 +47,7 @@ if(isset($_POST['email']) && isset($_POST['password'])){
         if(password_verify($_POST['password'], $data['password'])){ // attention
             $_SESSION['SessionOK'] = true;
             $_SESSION['email'] = $data['email'];
+            $_SESSION['account_type'] = $data['account_type'];
         }
     }
 }
