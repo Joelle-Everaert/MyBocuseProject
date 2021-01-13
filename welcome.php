@@ -18,12 +18,14 @@ die('Erreur : ' . $e->getMessage());
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    
     <title>Document</title>
 </head>
 <body>
+
 <?php
 if($_SESSION['account_type'] == 'student'){
-    include('profilChef.php');
+    include('pointage.php');
 }
 ?>
     <button class="addEventButton">Add a recipe</button>
@@ -61,8 +63,7 @@ if(!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['des
 
     <div class="form-popup" id="myForm" style="display:none">
         <form action="" method="POST">
-            <h1>Add a watch</h1>
-
+            
             <label for="email">Title</label>
             <input type="text" placeholder="Title" name="title_watch">
 
@@ -77,10 +78,11 @@ if(!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['des
     </div>
     
     <button class="profil1"><a href="profil.php">PROFIL</a></button>
+    <button class="profil1"><a href="calendrier.php">CALENDAR</a></button>
     <?php
 }
 ?>
-
+<script src="./js/recipe.js"></script>
 <script src="pointage.js"></script>
 </body>
 

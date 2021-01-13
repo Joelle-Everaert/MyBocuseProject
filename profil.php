@@ -50,7 +50,7 @@ session_start();
             <div class="profileContent">
                 <h3>22ans</h3>
                 <h3>Bocuse 1.5</h3>
-                <h3>+32 487 20 44 75</h3>
+                <h3>+32 000 00 00</h3>
                 <h3> Ericlambda01@gmail.com</h3>
             </div>
         </div>

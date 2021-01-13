@@ -26,9 +26,9 @@ include('secret.php');
 </head>
 <body>
     <nav class="topnav">
-        <a class="logo" href=""><img src="./assets/img/logo.png" alt="" width="25px" height="18px"
+        <a class="logo" href="index.php"><img src="./assets/img/logo.png" alt="" width="25px" height="18px"
                 style="filter: invert();">MyBocuse</a>
-        <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
         </div>
     </nav>
     <div class="calendarTitle">
@@ -57,7 +57,7 @@ include('secret.php');
             <div class="jours"></div>
         </div>
         <div class="contenaireEvetButton">
-            <button class="addEventButton">Add an event</button>
+            <button class="addEventButton">Add a recipe</button>
         </div>
     </div>
     
@@ -115,8 +115,8 @@ if(!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['des
 <?php
 }
 ?>
-<script src="./pointage.js"></script>
 <script src="./js/calendrier.js"></script>
+<script src="./js/recipe.js"></script>
 </body>
 
 </html>
