@@ -52,6 +52,9 @@ if(isset($_POST['email']) && isset($_POST['password'])){
             $_SESSION['account_type'] = $data['account_type'];
             $_SESSION['name'] = $data['name'];
             $_SESSION['surname'] = $data['surname'];
+
+            // /!!\ Changement today
+           $_SESSION['today'] = date("Y-m-d");
         }
     }
 }

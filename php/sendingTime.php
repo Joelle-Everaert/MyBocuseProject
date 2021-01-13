@@ -11,19 +11,20 @@ catch (Exception $e)
 die('Erreur : ' . $e->getMessage());
 }
 
+// /!!\ Changement today
+// $today = date("Y-m-d");
 
-$today = date("Y-m-d");
 $currentTime = date("H:i:s");
 
 if (!empty($_POST['cleMorning'])){
 $requestAttendanceMorning = $bdd->prepare('INSERT INTO attendanceTimes(fk_id_user, date, attendance_morning) VALUES(?,?,?)'); 
-$requestAttendanceMorning->execute(array($_SESSION['idUser'], $today, $currentTime));
+$requestAttendanceMorning->execute(array($_SESSION['idUser'],$_SESSION['today'], $currentTime));
 }
 
 if (!empty($_POST['cleEvening'])) {
     $requestAttendanceEvening = $bdd->prepare('UPDATE attendanceTimes SET attendance_evening=? WHERE fk_id_user = ? && date = ?');
 
-    $requestAttendanceEvening->execute(array($currentTime, $_SESSION['idUser'], $today));
+    $requestAttendanceEvening->execute(array($currentTime, $_SESSION['idUser'],$_SESSION['today']));
 
     
 }

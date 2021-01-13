@@ -27,6 +27,8 @@ die('Erreur : ' . $e->getMessage());
 <?php
 if($_SESSION['account_type'] == 'student'){
     include('./php/pointage.php');
+} else if ($_SESSION['account_type'] == 'chef') {
+    include('./php/attendanceHistory.php');
 }
 ?>
     <button class="addEventButton">Add a recipe</button>
