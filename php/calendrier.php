@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include('secret.php');
+include('../secret.php');
 
 
     try{
@@ -19,16 +19,16 @@ include('secret.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="normalize.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="calendrier.css">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/calendrier.css">
     <script src="https://kit.fontawesome.com/08f226ae60.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <nav class="topnav">
-        <a class="logo" href="index.php"><img src="./assets/img/logo.png" alt="" width="25px" height="18px"
+        <a class="logo" href="../index.php"><img src="./assets/img/logo.png" alt="" width="25px" height="18px"
                 style="filter: invert();">MyBocuse</a>
-        <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        <a href="./logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
         </div>
     </nav>
     <div class="calendarTitle">
@@ -115,8 +115,8 @@ if(!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['des
 <?php
 }
 ?>
-<script src="./js/calendrier.js"></script>
-<script src="./js/recipe.js"></script>
+<script src="../js/calendrier.js"></script>
+<script src="../js/recipe.js"></script>
 </body>
 
 </html>

@@ -17,21 +17,22 @@ die('Erreur : ' . $e->getMessage());
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/style.css">
     
-    <title>Document</title>
+    <title>MyBocus</title>
 </head>
 <body>
 
 <?php
 if($_SESSION['account_type'] == 'student'){
-    include('pointage.php');
+    include('./php/pointage.php');
 }
 ?>
     <button class="addEventButton">Add a recipe</button>
 
 <?php
-// Recupéré session de calendrier
+// Recupéré session de add a recipe
     $req = $bdd->prepare('SELECT id_user FROM Students WHERE email = ?');
     $req->execute([
         $_SESSION['email']
@@ -77,13 +78,13 @@ if(!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['des
         </form>
     </div>
     
-    <button class="profil1"><a href="profil.php">PROFIL</a></button>
-    <button class="profil1"><a href="calendrier.php">CALENDAR</a></button>
+    <button class="profil1"><a href="./php/profil.php">PROFIL</a></button>
+    <button class="profil1"><a href="./php/calendrier.php">CALENDAR</a></button>
     <?php
 }
 ?>
 <script src="./js/recipe.js"></script>
-<script src="pointage.js"></script>
+<script src="./js/pointage.js"></script>
 </body>
 
 </html>
