@@ -1,8 +1,25 @@
 <?php
 session_start();
+
+include('../secret.php');
+
+// requete pour recupérer recette liste
+try {
+    $bdd = new PDO("mysql:host=localhost;dbname=MyBocus;charset=utf8", "$user", "$pwd", [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+} catch (Exception $e) {
+    die('Erreur : ' . $e->getMessage());
+}
+
+// /!!\ Changement today
+
+    $requestAttendanceUser = $bdd->prepare('SELECT date, attendance_morning, attendance_evening FROM attendanceTimes WHERE fk_id_user = ?');
+    $requestAttendanceUser->execute(array($_SESSION['idUser']));
+
+    $requestRecipeUser = $bdd->prepare('SELECT date, title_watch, description FROM watch_recipe WHERE FK_id_user = ?');
+    $requestRecipeUser->execute(array($_SESSION['idUser']));
 ?>
 
-/*---------------------------------------------------------------*
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,8 +66,13 @@ session_start();
                     <a href="#"><i class="fab fa-2x fa-linkedin linkedin"></i></a>
                 </div>
             </div>
+<?php
+    $birthday = $_SESSION['birthday'];
+    $day = date("Y-m-d");
+    $diff = date_diff(date_create($birthday), date_create($day));
+?>
             <div class="profileContent">
-                <h3><?php echo $_SESSION['birthday']?></h3>
+                <h3><?php echo $diff->format('%y')?> ans</h3>
                 <h3><?php echo $_SESSION['promo']?></h3>
                 <h3>+32 000 00 00</h3>
                 <h3> <?php echo $_SESSION['email']?></h3>
@@ -60,6 +82,52 @@ session_start();
     <hr>
     <section class="Contenu_Presence_recette" >
         <h2>Attendances</h2>
+
+ 
+
+    <div class="attendanceHistory">
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Attendance Morning</th>
+                <th>Attendance Evening</th>
+            </tr>
+        <?php
+        while ($answerAttendancesUser = $requestAttendanceUser->fetch()) {
+            echo "<tr>
+     <td>" . $answerAttendancesUser['date']. "</td>
+    <td>" . $answerAttendancesUser['attendance_morning'] . "</td>
+    <td>" . $answerAttendancesUser['attendance_evening'] . "</td>
+  </tr>" ;
+        };
+    
+        ?>
+        </table>
+    </div>
+    </section>
+
+    <section class="Contenu_Presence_recette" >
+        <h2>Recipes history</h2>
+
+    <div class="attendanceHistory">
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Title recipe</th>
+                <th>Description</th>
+            </tr>
+        <?php
+        while ($answerRecipeUser = $requestRecipeUser->fetch()) {
+            echo "<tr>
+     <td>" . $answerRecipeUser['date']. "</td>
+    <td>" . $answerRecipeUser['title_watch'] . "</td>
+    <td>" . $answerRecipeUser['description'] . "</td>
+  </tr>" ;
+        };
+        
+        ?>
+        </table>
+    </div>
     </section>
     
     <script src="../js/edit.js"></script>

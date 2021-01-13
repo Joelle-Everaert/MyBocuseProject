@@ -308,3 +308,9 @@ h2 {
 .attendanceLeft>p:nth-child(3) {
      font-size: 12px;
 }
+
+/* ------------------------------History Attendances-------------------------- */
+
+.attendanceHistory {
+    color:white;
+}

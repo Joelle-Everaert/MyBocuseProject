@@ -26,7 +26,7 @@ include('../secret.php');
 </head>
 <body>
     <nav class="topnav">
-        <a class="logo" href="../index.php"><img src="./assets/img/logo.png" alt="" width="25px" height="18px"
+        <a class="logo" href="../index.php"><img src="../assets/img/logo.png" alt="" width="25px" height="18px"
                 style="filter: invert();">MyBocuse</a>
         <a href="./logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
         </div>

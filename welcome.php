@@ -25,10 +25,15 @@ die('Erreur : ' . $e->getMessage());
 <body>
 
 <?php
+
 if($_SESSION['account_type'] == 'student'){
-    include('./php/pointage.php');
-}
-?>
+    include('./php/pointage.php');	    
+} else if ($_SESSION['account_type'] == 'chef') {
+    include('./php/attendanceHistory.php');
+}	
+
+?>	
+
     <button class="addEventButton">Add a recipe</button>
 
 <?php

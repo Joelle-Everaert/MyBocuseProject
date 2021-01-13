@@ -54,6 +54,7 @@ if(isset($_POST['email']) && isset($_POST['password'])){
             $_SESSION['surname'] = $data['surname'];
             $_SESSION['birthday'] =$data['birthday'];
             $_SESSION['promo'] = $data['promo'];
+            $_SESSION['today'] = date("Y-m-d");
         }
     }
 }
