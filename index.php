@@ -22,6 +22,7 @@ include('secret.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyBocuse</title>
+    <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -31,13 +32,14 @@ include('secret.php');
             <div class="titre_soustitre">
                 <h1 class="titre">Welcome to your MyBocuse space</h1>
                 <h2 class="soustitre">please sign in to enter the website.</h2>
+               
                 
             </div>
 
 <?php
 
 if(isset($_POST['email']) && isset($_POST['password'])){
-    $request = $bdd->prepare('SELECT email, password, account_type FROM Students WHERE email = ?') or die(print_r($bdd->errorInfo()));
+    $request = $bdd->prepare('SELECT email, password, account_type, name, surname FROM Students WHERE email = ?') or die(print_r($bdd->errorInfo()));
     $request->execute([
         $_POST['email']  
     ]);
@@ -48,6 +50,8 @@ if(isset($_POST['email']) && isset($_POST['password'])){
             $_SESSION['SessionOK'] = true;
             $_SESSION['email'] = $data['email'];
             $_SESSION['account_type'] = $data['account_type'];
+            $_SESSION['name'] = $data['name'];
+            $_SESSION['surname'] = $data['surname'];
         }
     }
 }
@@ -56,7 +60,7 @@ if($_SESSION){
     header("Location: ./welcome.php");
 
 }else{
-    include("./form.php");
+    include("./loginForm.php");
 }
 
 ?>

@@ -21,14 +21,12 @@ die('Erreur : ' . $e->getMessage());
     <title>Document</title>
 </head>
 <body>
-    <p>c'est ok </p>
-    <button><a href="logout.php">LOG OUT</a></button>
 <?php
 if($_SESSION['account_type'] == 'student'){
-    include('pointage.php');
+    include('profilChef.php');
 }
 ?>
-    <button class="addWatch">Add a recipe</button>
+    <button class="addEventButton">Add a recipe</button>
 
 <?php
 // Recupéré session de calendrier
@@ -53,10 +51,8 @@ if(!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['des
     $title_recipe = $_POST['title_watch'];
     $req-> closeCursor();  
 
-    echo "<h1> Ta recette \" ". $title_recipe ." \" est enrigistrée </h1>";
+    echo "<h1 style='color:white'> Ta recette \" ". $title_recipe ." \" est enrigistrée </h1>";
 ?>
-
-    
 
 <?php 
     
@@ -79,12 +75,13 @@ if(!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['des
             <button type="submit" class="btn">Enter</button>
         </form>
     </div>
-    <script src="pointage.js"></script>
     
-<?php
+    <button class="profil1"><a href="profil.php">PROFIL</a></button>
+    <?php
 }
 ?>
 
+<script src="pointage.js"></script>
 </body>
 
 </html>
