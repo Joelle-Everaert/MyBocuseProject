@@ -89,7 +89,9 @@ try {
         } 
         ?>
     
-
+    <?php
+    include("../php/footer.php");
+?>
     <script src="../js/edit.js"></script>
     <script src="../js/addProfilePic.js"></script>
 </body>

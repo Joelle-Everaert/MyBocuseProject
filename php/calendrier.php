@@ -115,6 +115,10 @@ if(!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['des
 <?php
 }
 ?>
+
+<?php
+    include("../php/footer.php");
+?>
 </body>
 </html>
 

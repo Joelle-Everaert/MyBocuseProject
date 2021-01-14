@@ -11,6 +11,11 @@ body {
     font-family: 'Montserrat Alternates', sans-serif;
 
 }
+footer {
+    color: white;
+    text-align: center;
+    margin: 0 50px 0 0;
+}
 /* Login Animation */
 
 .logincontainer {
@@ -34,7 +39,7 @@ body {
 }
 .header {
     display: flex;
-    height: 100vh;
+    height: 96vh;
     justify-content: space-between;
 }
 label{
@@ -99,6 +104,7 @@ input[type=submit]:hover {
 .welcomeHeader {
     display: flex;
     justify-content: space-between;
+    height: 80vh;
 }
 .welcomeSubtitle {
     color: white;
@@ -442,6 +448,7 @@ hr {
     text-align: center;
     justify-content: center;
     justify-content: space-around;
+    height: 50vh;
 }
 .Contenu_Presence_recette table {
     text-align: center;

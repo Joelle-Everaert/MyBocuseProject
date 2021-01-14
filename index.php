@@ -72,7 +72,12 @@ if($_SESSION){
             <div class="imagelogin">
                 <img src="./assets/img/loginimage.jpg" alt="">
             </div>
+            
     </section>
+<?php
+    include("./php/footer.php");
+?>
+
 </body>
 
 </html>

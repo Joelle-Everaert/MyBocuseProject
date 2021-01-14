@@ -113,7 +113,9 @@ die('Erreur : ' . $e->getMessage());
         </div>
     </div>
 
-
+    <?php
+    include("./php/footer.php");
+?>
     <script src="./js/recipe.js"></script>
     <script src="./js/pointage.js"></script>
 </body>
