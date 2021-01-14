@@ -3,12 +3,14 @@ session_start();
 
 include('../secret.php');
 
-// requete pour recupérer recette liste
-try {
-    $bdd = new PDO("mysql:host=localhost;dbname=MyBocus;charset=utf8", "$user", "$pwd", [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-} catch (Exception $e) {
-    die('Erreur : ' . $e->getMessage());
+try{
+    $bdd= new PDO("mysql:host=localhost;dbname=uaanzmse_mybocus;charset=utf8", $user, $pwd, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 }
+catch (Exception $e)
+{
+die('Erreur : ' . $e->getMessage());
+}
+
 $arrayRecipeDate = [];
 if (!empty($_POST['cleGetCalendarRecipeView'])){
 $requestRecipeDates = $bdd->prepare('SELECT date FROM watch_recipe');
