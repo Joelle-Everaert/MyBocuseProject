@@ -6,12 +6,13 @@ include('../secret.php');
 // requete pour recupérer recette liste
 
 try{
-    $bdd= new PDO("mysql:host=127.0.0.1:3306;dbname=uaanzmse_mybocus;charset=utf8", $user, $pwd, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+    $bdd= new PDO("mysql:host=localhost;dbname=uaanzmse_mybocus;charset=utf8", $user, $pwd, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 }
 catch (Exception $e)
 {
 die('Erreur : ' . $e->getMessage());
 }
+
 
 // /!!\ Changement today
 

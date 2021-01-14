@@ -3,15 +3,16 @@
 include('../secret.php');
 
 try{
-    $bdd= new PDO("mysql:host=127.0.0.1:3306;dbname=uaanzmse_mybocus;charset=utf8", $user, $pwd, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+    $bdd= new PDO("mysql:host=localhost;dbname=uaanzmse_mybocus;charset=utf8", $user, $pwd, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 }
 catch (Exception $e)
 {
 die('Erreur : ' . $e->getMessage());
 }
+?>
 
-// /!!\ Changement today
 
+<?php
     $requestAttendances = $bdd->prepare('SELECT fk_id_user, attendance_morning, attendance_evening FROM attendanceTimes WHERE date=?');
     $requestAttendances->execute(array($_SESSION['today']));
 
