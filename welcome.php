@@ -4,7 +4,7 @@ session_start();
 include('secret.php');
 
 try{
-    $bdd= new PDO("mysql:host=localhost;dbname=MyBocus;charset=utf8", "$user", "$pwd", [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+    $bdd= new PDO("mysql:host=127.0.0.1:3306;dbname=uaanzmse_mybocus;charset=utf8", $user, $pwd, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 }
 catch (Exception $e)
 {
@@ -26,9 +26,10 @@ die('Erreur : ' . $e->getMessage());
 </head>
 
 <body>
+
 <?php
     include("./php/smallScreen.php");
-    ?>
+?>
     <!-- ======================= NAVBAR ============================================= -->
     <nav class="topnav">
         <a class="logo" href="../index.php"><img src="./assets/img/logo.png" alt="" width="25px" height="18px"
