@@ -32,7 +32,7 @@ include('../secret.php');
         <a class="logo" href="../index.php"><img src="../assets/img/logo.png" alt="" width="25px" height="18px"
                 style="filter: invert();">MyBocuse</a>
         <a href="./logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
-        <a href="./php/logout.php"><i class="fas fa-user"></i></i> Profile</a>
+        <a href="../php/profil.php"><i class="fas fa-user"></i></i> Profile</a>
         </div>
     </nav>
     <div class="calendarTitle">
