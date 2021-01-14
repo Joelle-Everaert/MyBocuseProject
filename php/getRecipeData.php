@@ -25,13 +25,14 @@ $answerUserIdRecipe = $requestNameUserRecipe->fetch();
 // echo $answerRecipeDates['title_watch'] . "," . $answerRecipeDates['description'] . "," . $answerUserIdRecipe['surname'];
 
 echo "
-<div>
-    <p>Recipe done by</p>
+<div class='getRecipe'>
+    <h3>Recipe done by</h3>
     <p>". $answerUserIdRecipe['surname'] ."</p>
-    <p>Recipe title</p>
+    <h3>Recipe title</h3>
     <p>". $answerRecipeDates['title_watch'] ."</p>
-    <p>Description</p>
-    <p>". $answerRecipeDates['description'] ."</p>
+    <h3>Description</h3>
+    <p>". $answerRecipeDates['description'] . "</p>
 </div>";
+
 }
 ?>

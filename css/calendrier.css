@@ -175,3 +175,23 @@ html{
     display:none;
 }
 }
+
+.recipeDisplayDiv h3{
+color:#BF9E63;
+}
+
+.recipeDisplayDiv{
+
+    padding: 10px 10px;
+    display: inline-block;
+ font-size: 20px;
+ width:400px;
+}
+
+.containerRecipe{
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}

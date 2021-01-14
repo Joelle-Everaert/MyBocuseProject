@@ -89,40 +89,44 @@ if (!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['de
     $req->closeCursor();
 ?>
 
-    <h1> C'est encoder ;-)</h1>
+                <h1> C'est encoder ;-)</h1>
 
-<?php
+            <?php
 
-} else {
-?>
+            } else {
+            ?>
 
     <div class="form-popup" id="myForm" style="display:none">
         <form class = "formContent" action="" method="POST">
             <h1>Add a recipe</h1>
 
-            <label for="email">Title</label>
-            <input type="text" placeholder="Title" name="title_watch">
+                        <label for="email">Title</label>
+                        <input type="text" placeholder="Title" name="title_watch">
 
-            <label for="date">Date</label>
-            <input type="date" placeholder="Enter Password" name="date">
+                        <label for="date">Date</label>
+                        <input type="date" placeholder="Enter Password" name="date">
 
-            <label for="explication">Recipe description</label>
-            <textarea placeholder="Enter a brief description" name="description"></textarea>
+                        <label for="explication">Recipe description</label>
+                        <textarea placeholder="Enter a brief description" name="description"></textarea>
 
-            <button type="submit" class="btn">Enter</button>
-        </form>
+                        <button type="submit" class="btn">Enter</button>
+                    </form>
+                </div>
+
+
+            <?php
+            }
+            ?>
+        </div>
     </div>
 
+    <?php
 
-<?php
-}
+include("../php/footer.php");
+
 ?>
 
-<?php
-    include("../php/footer.php");
-?>
-</body>
-</html>
+
 
 
 <script src="../js/calendrier.js"></script>

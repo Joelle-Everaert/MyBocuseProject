@@ -165,9 +165,10 @@ fetch("../php/calendarRecipeView.php", {
     let todayToSelect = document.querySelectorAll(".today")
     console.log('todayToSelect:', todayToSelect)
 
-
+let containerRecipe=document.createElement("div");
+containerRecipe.classList.add("containerRecipe");
 let recipeDisplayDiv = document.createElement("div");
-
+document.body.appendChild(containerRecipe);
     for (let dayDiv of daysDivToSelect) {
       dayDiv.addEventListener("click", function (e) {
           console.log("coucou");
@@ -196,11 +197,11 @@ let recipeDisplayDiv = document.createElement("div");
       recipeDisplayDiv.classList.add("recipeDisplayDiv");
       recipeDisplayDiv.style.color = "white";
       recipeDisplayDiv.innerHTML=text
-      document.body.appendChild(recipeDisplayDiv)
+      containerRecipe.appendChild(recipeDisplayDiv);
               });
           }
           else {
-            document.body.removeChild(recipeDisplayDiv);
+            containerRecipe.removeChild(recipeDisplayDiv);
           }
 
         })
@@ -229,11 +230,11 @@ let recipeDisplayDiv = document.createElement("div");
       recipeDisplayDiv.classList.add("recipeDisplayDiv");
       recipeDisplayDiv.style.color = "white";
       recipeDisplayDiv.innerHTML=text
-      document.body.appendChild(recipeDisplayDiv)
+       containerRecipe.appendChild(recipeDisplayDiv);
               });
           }
           else {
-            document.body.removeChild(recipeDisplayDiv);
+            containerRecipe.removeChild(recipeDisplayDiv)
           }
 
         })
