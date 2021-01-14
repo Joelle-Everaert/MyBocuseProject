@@ -5,9 +5,11 @@ session_start();
 include('secret.php');
 
 
+
 try {
     $bdd = new PDO("mysql:host=localhost;dbname=MyBocus;charset=utf8", "$user", "$pwd", [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 } catch (Exception $e) {
+
     die('Erreur : ' . $e->getMessage());
 }
 
@@ -25,26 +27,40 @@ try {
 </head>
 
 <body id="loginpage">
-    <?php
+
+<?php
+
     include("./php/smallScreen.php");
     ?>
     <section class="header">
         <div class="logincontainer">
             <div class="titre_soustitre">
                 <h1 class="titre">Welcome to your MyBocuse space</h1>
-                <h2 class="soustitre">please sign in to enter the website.</h2>
-
-
             </div>
 
             <?php
 
-            if (isset($_POST['email']) && isset($_POST['password'])) {
-                $request = $bdd->prepare('SELECT email, password, account_type, name, surname FROM Students WHERE email = ?') or die(print_r($bdd->errorInfo()));
-                $request->execute([
-                    $_POST['email']
-                ]);
-                $data = $request->fetch();
+if(isset($_POST['email']) && isset($_POST['password'])){
+    $request = $bdd->prepare('SELECT email, password, account_type, name, surname, birthday, promo FROM Students WHERE email = ?') or die(print_r($bdd->errorInfo()));
+    $request->execute([
+        $_POST['email']  
+    ]);
+    $data = $request->fetch(); 
+                
+    if(!empty($data)){
+        if(password_verify($_POST['password'], $data['password'])){ // attention
+            $_SESSION['SessionOK'] = true;
+            $_SESSION['email'] = $data['email'];
+            $_SESSION['account_type'] = $data['account_type'];
+            $_SESSION['name'] = $data['name'];
+            $_SESSION['surname'] = $data['surname'];
+            $_SESSION['birthday'] =$data['birthday'];
+            $_SESSION['promo'] = $data['promo'];
+            $_SESSION['today'] = date("Y-m-d");
+        }
+    }
+}
+
 
                 if (!empty($data)) {
                     if (password_verify($_POST['password'], $data['password'])) { // attention
@@ -58,7 +74,8 @@ try {
                         $_SESSION['today'] = date("Y-m-d");
                     }
                 }
-            }
+            
+
 
             if ($_SESSION) {
                 header("Location: ./welcome.php");
@@ -72,6 +89,9 @@ try {
         <div class="images">
             <img src="./assets/img/loginimage.jpg" alt="" width="500px" height="730px">
         </div>
+            <div class="imagelogin">
+                <img src="./assets/img/loginimage.jpg" alt="">
+            </div>
     </section>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
     <script src="./js/responsive.js"></script> -->

@@ -1,5 +1,6 @@
 <?php
 try {
+
     $bdd = new PDO("mysql:host=localhost;dbname=MyBocus;charset=utf8", "$user", "$pwd", [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 } catch (Exception $e) {
     die('Erreur : ' . $e->getMessage());
@@ -30,7 +31,8 @@ try {
     <td>" . $answerDailyAttendances['attendance_evening'] . "</td>
   </tr>" ;
         };
-    
+
         ?>
         </table>
-    </div>
+    </div> 
+
