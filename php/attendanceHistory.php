@@ -12,6 +12,7 @@ die('Erreur : ' . $e->getMessage());
 ?>
 
 
+
 <?php
     $requestAttendances = $bdd->prepare('SELECT fk_id_user, attendance_morning, attendance_evening FROM attendanceTimes WHERE date=?');
     $requestAttendances->execute(array($_SESSION['today']));
