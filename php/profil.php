@@ -32,7 +32,11 @@ try {
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://kit.fontawesome.com/08f226ae60.js" crossorigin="anonymous"></script>
 </head>
+
 <body class="profileBody">
+<?php
+    include("../php/smallScreen.php");
+?> 
     <!-- ======================= NAVBAR ============================================= -->
     <nav class="topnav">
         <a class="logo" href="../index.php"><img src="../assets/img/logo.png" alt="" width="25px" height="18px"
@@ -40,12 +44,11 @@ try {
         <a href="./logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
         </div>
     </nav>
-    
-    <h1 class="profileTitle">Check your profile</h1>
+
     <h2 class="profileName"><i class="fas fa-user"></i> <?php echo $_SESSION['name']. " " .$_SESSION['surname'];?> </h2>
     <section class="contenuProfil">
         <div class="profileHeader">
-            
+
             <div class="profile-pic-div">
                 <img src="../assets/img/image.jpg" id="photo">
                 <input type="file" id="file">
@@ -66,7 +69,7 @@ try {
                     <a href="#"><i class="fab fa-2x fa-linkedin linkedin"></i></a>
                 </div>
             </div>
-<?php
+            <?php
     $birthday = $_SESSION['birthday'];
     $day = date("Y-m-d");
     $diff = date_diff(date_create($birthday), date_create($day));
@@ -80,57 +83,56 @@ try {
         </div>
     </section>
     <hr>
-    <section class="Contenu_Presence_recette" >
-        <h2>Attendances</h2>
 
- 
+    <section class="Contenu_Presence_recette">
+        
+        <div class="attendanceHistory">
+            <h2>Attendances</h2>
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Attendance Morning</th>
+                    <th>Attendance Evening</th>
+                </tr>
+                <?php
+                while ($answerAttendancesUser = $requestAttendanceUser->fetch()) {
+                echo 
+                "<tr>
+                    <td>" . $answerAttendancesUser['date']. "</td>
+                    <td>" . $answerAttendancesUser['attendance_morning'] . "</td>
+                    <td>" . $answerAttendancesUser['attendance_evening'] . "</td>
+                </tr>" ;
+                };
+                ?>
 
-    <div class="attendanceHistory">
-        <table>
-            <tr>
-                <th>Date</th>
-                <th>Attendance Morning</th>
-                <th>Attendance Evening</th>
-            </tr>
-        <?php
-        while ($answerAttendancesUser = $requestAttendanceUser->fetch()) {
-            echo "<tr>
-     <td>" . $answerAttendancesUser['date']. "</td>
-    <td>" . $answerAttendancesUser['attendance_morning'] . "</td>
-    <td>" . $answerAttendancesUser['attendance_evening'] . "</td>
-  </tr>" ;
-        };
-    
-        ?>
-        </table>
-    </div>
-    </section>
+            </table>
 
-    <section class="Contenu_Presence_recette" >
-        <h2>Recipes history</h2>
+        </div>
 
-    <div class="attendanceHistory">
-        <table>
-            <tr>
-                <th>Date</th>
-                <th>Title recipe</th>
-                <th>Description</th>
-            </tr>
-        <?php
+        <div class="recipeHistory">
+            <h2>Recipes history</h2>
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Title recipe</th>
+                    <th>Description</th>
+                </tr>
+                <?php
         while ($answerRecipeUser = $requestRecipeUser->fetch()) {
             echo "<tr>
-     <td>" . $answerRecipeUser['date']. "</td>
-    <td>" . $answerRecipeUser['title_watch'] . "</td>
-    <td>" . $answerRecipeUser['description'] . "</td>
-  </tr>" ;
+        <td>" . $answerRecipeUser['date']. "</td>
+        <td>" . $answerRecipeUser['title_watch'] . "</td>
+        <td>" . $answerRecipeUser['description'] . "</td>
+        </tr>" ;
         };
         
         ?>
-        </table>
-    </div>
+            </table>
+        </div>
     </section>
-    
+
     <script src="../js/edit.js"></script>
     <script src="../js/addProfilePic.js"></script>
 </body>
+
 </html>

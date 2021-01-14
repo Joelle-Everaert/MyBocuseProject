@@ -6,7 +6,7 @@ include('secret.php');
 
 
     try{
-        $bdd= new PDO("mysql:host=localhost;dbname=MyBocus;charset=utf8", "$user", "$pwd", [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+        $bdd= new PDO("mysql:host=localhost;dbname=mybocuse;charset=utf8", "$user", "$pwd", [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
     }
     catch (Exception $e)
     {
@@ -27,13 +27,13 @@ include('secret.php');
 </head>
 
 <body id="loginpage">
+<?php
+    include("./php/smallScreen.php");
+    ?>
     <section class="header">
         <div class="logincontainer">
             <div class="titre_soustitre">
                 <h1 class="titre">Welcome to your MyBocuse space</h1>
-                <h2 class="soustitre">please sign in to enter the website.</h2>
-               
-                
             </div>
 
 <?php
@@ -67,11 +67,11 @@ if($_SESSION){
 }
 
 ?>
-            
-    </div>
-    <div class="images">
-        <img src="./assets/img/loginimage.jpg" alt="" width="500px" height="730px">
+
         </div>
+            <div class="imagelogin">
+                <img src="./assets/img/loginimage.jpg" alt="">
+            </div>
     </section>
 </body>
 

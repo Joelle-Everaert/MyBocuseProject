@@ -30,7 +30,7 @@ try {
     <td>" . $answerDailyAttendances['attendance_evening'] . "</td>
   </tr>" ;
         };
-    
+
         ?>
         </table>
-    </div>
+    </div> 

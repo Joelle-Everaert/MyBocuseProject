@@ -4,7 +4,7 @@ session_start();
 include('secret.php');
 
 try{
-    $bdd= new PDO("mysql:host=localhost;dbname=MyBocus;charset=utf8", "$user", "$pwd", [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+    $bdd= new PDO("mysql:host=localhost;dbname=mybocuse;charset=utf8", "$user", "$pwd", [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 }
 catch (Exception $e)
 {
@@ -14,82 +14,108 @@ die('Erreur : ' . $e->getMessage());
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/style.css">
-    
+    <script src="https://kit.fontawesome.com/08f226ae60.js" crossorigin="anonymous"></script>
+
     <title>MyBocus</title>
 </head>
+
 <body>
-
 <?php
+    include("./php/smallScreen.php");
+    ?>
+    <!-- ======================= NAVBAR ============================================= -->
+    <nav class="topnav">
+        <a class="logo" href="../index.php"><img src="./assets/img/logo.png" alt="" width="25px" height="18px"
+                style="filter: invert();">MyBocuse</a>
+        <a href="./php/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        <a href="./php/profil.php"><i class="fas fa-user"></i></i> Profile</a>
+        </div>
+    </nav>
 
-if($_SESSION['account_type'] == 'student'){
-    include('./php/pointage.php');	    
-} else if ($_SESSION['account_type'] == 'chef') {
-    include('./php/attendanceHistory.php');
-}	
+    <h2 class="welcomeName"><i class="fas fa-user"></i> <?php echo $_SESSION['name']. " " .$_SESSION['surname'];?> </h2>
 
-?>	
+    <div class="welcomeHeader">
+        <div class="welcomesubheader1">
+            <?php
 
-    <button class="addEventButton">Add a recipe</button>
+            if($_SESSION['account_type'] == 'student'){
+            include('./php/pointage.php');        
+            } else if ($_SESSION['account_type'] == 'chef') {
+            include('./php/attendanceHistory.php');
+            }    
+            ?>
+        </div>
 
-<?php
-// Recupéré session de add a recipe
-    $req = $bdd->prepare('SELECT id_user FROM Students WHERE email = ?');
-    $req->execute([
-        $_SESSION['email']
-    ]);
-    $data = $req->fetch(); 
+        <span class="welcomeTraitgauche" style="margin-top:30px;"></span>
 
-    $req-> closeCursor();  
+        <div class="buttonsAndModal">
+            <div class="welcomesubheader2">
 
-    $_SESSION['idUser'] = $data['id_user'];
+                <button class="viewCalendarButton"><a href="./php/calendrier.php">View calendar<a></button>
+                <button class="addEventButton">Add a recipe</button>
 
-if(!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['description'])){
-    $req = $bdd->prepare('INSERT INTO watch_recipe (FK_id_user, title_watch, date, description) VALUES (?, ?, ?, ?)') or die(print_r($bdd->errorInfo()));
-    $req->execute([
-        $_SESSION['idUser'],
-        strip_tags(trim($_POST['title_watch'])),
-        strip_tags(trim($_POST['date'])),
-        strip_tags(trim($_POST['description'])),
-    ]);
-    $title_recipe = $_POST['title_watch'];
-    $req-> closeCursor();  
+            </div>
+            <?php
+            // Recupéré session de add a recipe
+            $req = $bdd->prepare('SELECT id_user FROM Students WHERE email = ?');
+            $req->execute([
+            $_SESSION['email']
+            ]);
+            $data = $req->fetch(); 
 
-    echo "<h1 style='color:white'> Ta recette \" ". $title_recipe ." \" est enrigistrée </h1>";
-?>
+            $req-> closeCursor();  
 
-<?php 
-    
-}else{
-?> 
+            $_SESSION['idUser'] = $data['id_user'];
 
-    <div class="form-popup" id="myForm" style="display:none">
-        <form action="" method="POST">
-            
-            <label for="email">Title</label>
-            <input type="text" placeholder="Title" name="title_watch">
+            if(!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['description'])){
+            $req = $bdd->prepare('INSERT INTO watch_recipe (FK_id_user, title_watch, date, description) VALUES (?, ?, ?, ?)') or die(print_r($bdd->errorInfo()));
+            $req->execute([
+            $_SESSION['idUser'],
+            strip_tags(trim($_POST['title_watch'])),
+            strip_tags(trim($_POST['date'])),
+            strip_tags(trim($_POST['description'])),
+            ]);
+            $title_recipe = $_POST['title_watch'];
+            $req-> closeCursor();  
 
-            <label for="date">Date</label>
-            <input type="date" placeholder="Enter Password" name="date">
+            echo "<h4 style='color:white;text-align:center;'> Ta recette \" ". $title_recipe ." \" est enrigistrée </h4>";
+            ?>
 
-            <label for="explication">Recipe description</label>
-            <textarea placeholder="Enter a brief description" name="description"></textarea>
+            <?php 
+            }else{
+            ?>
 
-            <button type="submit" class="btn">Enter</button>
-        </form>
+                <div class="form-popup" id="myForm" style="display:none">
+                    <form class = "formContent" action="" method="POST">
+
+                        <label for="email">Title</label>
+                        <input type="text" placeholder="Title" name="title_watch">
+
+                        <label for="date">Date</label>
+                        <input type="date" placeholder="Enter Password" name="date">
+
+                        <label for="explication">Recipe description</label>
+                        <textarea placeholder="Enter a brief description" name="description"></textarea>
+
+                        <button type="submit" class="btn">Enter</button>
+                    </form>
+                </div>
+
+            <?php
+            }
+            ?>
+        </div>
     </div>
-    
-    <button class="profil1"><a href="./php/profil.php">PROFIL</a></button>
-    <button class="profil1"><a href="./php/calendrier.php">CALENDAR</a></button>
-    <?php
-}
-?>
-<script src="./js/recipe.js"></script>
-<script src="./js/pointage.js"></script>
+
+
+    <script src="./js/recipe.js"></script>
+    <script src="./js/pointage.js"></script>
 </body>
 
 </html>
