@@ -5,7 +5,7 @@ include('../secret.php');
 
 
     try{
-        $bdd= new PDO("mysql:host=localhost;dbname=MyBocus;charset=utf8", "$user", "$pwd", [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+        $bdd= new PDO("mysql:host=localhost;dbname=mybocuse;charset=utf8", "$user", "$pwd", [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
     }
     catch (Exception $e)
     {
@@ -26,9 +26,10 @@ include('../secret.php');
 </head>
 <body>
     <nav class="topnav">
-        <a class="logo" href="../index.php"><img src="./assets/img/logo.png" alt="" width="25px" height="18px"
+        <a class="logo" href="../index.php"><img src="../assets/img/logo.png" alt="" width="25px" height="18px"
                 style="filter: invert();">MyBocuse</a>
         <a href="./logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        <a href="./php/logout.php"><i class="fas fa-user"></i></i> Profile</a>
         </div>
     </nav>
     <div class="calendarTitle">
