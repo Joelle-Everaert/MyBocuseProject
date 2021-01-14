@@ -75,9 +75,10 @@ for (let i = 1; i <= dernierJour; i++) {
       i === new Date().getDate() &&
       date.getMonth() === new Date().getMonth()
     ) {
-      days += `<div class="today">${i}</div>`;
+      days += `<div class="today">${i}
+      <button class="calendarRecipeViewBtn">coucou</button> </div>`;
     } else {
-      days += `<div>${i}</div>`;
+      days += `<div>${i} </div>`;
     }
 }  
 
