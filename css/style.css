@@ -12,7 +12,6 @@ body {
 
 }
 
-
 /* Login Animation */
 
 .logincontainer {
@@ -496,27 +495,42 @@ hr {
         
     }
     
-    
-    .logincontainer, .titre_soustitre, .titre  {
+    /* index */
+    .logincontainer, .titre_soustitre, .titre, .imagelogin, .imagelogin img, .header, label, input {
         display:none;
     }
-    .titre_soustitre {
-        display:none;
-    }
-    .titre {
-        display:none;
-    }
-    .imagelogin {
-        display:none;
-    }
-    .imagelogin img {
-        display:none;
-    }
-    .header {
-        display:none;
-    }
-    label{
-        display:none;
-    }
-    
+
+    /* ----------------------WELCOME PAGE--------------------------- */
+.welcomeName, .welcomeHeader,.welcomeSubtitle,.welcomeTraitgauche {
+    display:none; 
+}
+
+/* ========= ATTENDANCES ============ */
+.attendanceSec,
+.date,
+.attendances,
+.attendanceLeft,
+.attendanceRight,
+.attendanceLeft:hover,
+.attendanceRight:hover,
+.attendanceRight>p:nth-child(1),
+.attendanceLeft>p:nth-child(1),
+.attendanceRight>p span,
+.attendanceLeft>p span,
+.attendanceRight>button,
+.attendanceLeft>button,
+.attendanceRight>button:hover,
+.attendanceLeft>button:hover,
+.attendanceRight>p:nth-child(3),
+.attendanceLeft>p:nth-child(3){
+    display:none;
+}
+
+/* PROFIL PAGE */
+
+.topnav, .profileHeader, .profileName, .infos, .profileContent, .Contenu_Presence_recette {
+    display:none;
+}
+
+
 }
