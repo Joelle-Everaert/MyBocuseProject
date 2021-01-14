@@ -86,9 +86,6 @@ if(isset($_POST['email']) && isset($_POST['password'])){
             ?>
 
         </div>
-        <div class="images">
-            <img src="./assets/img/loginimage.jpg" alt="" width="500px" height="730px">
-        </div>
             <div class="imagelogin">
                 <img src="./assets/img/loginimage.jpg" alt="">
             </div>

@@ -114,8 +114,16 @@ html{
 .next-date {
     opacity: 0.5;
 }
-  
+ 
+.days {
+    display: flex;
+    flex-direction: column;
+    
+}
+
 .today {
+    display: flex;
+    flex-direction: column;
     background-color: #BF9E63;
 }
 

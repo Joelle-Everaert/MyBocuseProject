@@ -481,10 +481,12 @@ hr {
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
 }
-.attendanceHistory {
+.attendanceHistory,
+.recipeDisplayDiv {
     border: 1px solid #BF9E63;
     border-radius: 15px;
     overflow: auto;
+    color: white;
 }
 .attendanceHistory::-webkit-scrollbar {
     display: none;
