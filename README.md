@@ -11,8 +11,6 @@
 Start date : 11/01/2021
 End date : 14/01/2020
 
-
-
 ## What is this ?
 It is a work as part of our training at **[BeCode](https://becode.org)**. <br>
 
