@@ -64,11 +64,7 @@ include('../secret.php');
             <button class="addEventButton">Add a recipe</button>
         </div>
     </div>
-    
-</body>
-</html>
-
-<?php
+    <?php
 // Recupéré session de calendrier
     $req = $bdd->prepare('SELECT id_user FROM Students WHERE email = ?');
     $req->execute([
@@ -99,7 +95,7 @@ if(!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['des
 ?> 
 
     <div class="form-popup" id="myForm" style="display:none">
-        <form action="" method="POST">
+        <form class = "formContent" action="" method="POST">
             <h1>Add a watch</h1>
 
             <label for="email">Title</label>
@@ -119,6 +115,10 @@ if(!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['des
 <?php
 }
 ?>
+</body>
+</html>
+
+
 <script src="../js/calendrier.js"></script>
 <script src="../js/recipe.js"></script>
 </body>

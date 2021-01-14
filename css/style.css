@@ -29,8 +29,8 @@ body {
     display: inline-block;
 }
 .imagelogin img {
-    width:500px;
-    max-height:100%;
+    width:700px;
+    height: 100vh;
 }
 .header {
     display: flex;
@@ -413,7 +413,29 @@ hr {
     margin: 10px 50px 5px 50px;
 }
 
-/* Attendance informations */
+/* CHEF WELCOME ATTENDANCES */
+.attendanceChefHistory {
+    border: 1px solid #BF9E63;
+    border-radius: 15px;
+    overflow: auto;
+    color: white;
+    margin-top: 50px;
+    margin-left: 100px;
+}
+.attendanceChefHistory::-webkit-scrollbar {
+    display: none;
+}
+.attendanceChefHistory td {
+    border-right: 1px solid #BF9E63;
+    border-bottom: 1px solid #BF9E63;
+}
+.attendanceChefHistory td:last-child {
+    border-right: 0;
+}
+.attendanceChefHistory table {
+    border-collapse: collapse;
+}
+/* Attendance Learners informations */
 .Contenu_Presence_recette { 
     display: flex;
     color: white;
@@ -430,45 +452,45 @@ hr {
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
 }
-.attendanceHistory {
+.attendanceLearnersHistory {
     border: 1px solid #BF9E63;
     border-radius: 15px;
     overflow: auto;
+    color: white;
 }
-.attendanceHistory::-webkit-scrollbar {
+.attendanceLearnersHistory::-webkit-scrollbar {
     display: none;
 }
-.attendanceHistory td {
+.attendanceLearnersHistory td {
     border-right: 1px solid #BF9E63;
     border-bottom: 1px solid #BF9E63;
 }
-.attendanceHistory td:last-child {
+.attendanceLearnersHistory td:last-child {
     border-right: 0;
 }
-.attendanceHistory table {
+.attendanceLearnersHistory table {
     border-collapse: collapse;
 }
-.recipeHistory {
+.recipeLearnersHistory {
     border: 1px solid #BF9E63;
     border-radius: 15px;
     overflow: auto;
     height: 300px;
 }
-.recipeHistory::-webkit-scrollbar {
+.recipeLearnersHistory::-webkit-scrollbar {
     display: none;
 }
-.recipeHistory td {
+.recipeLearnersHistory td {
     border-right: 1px solid #BF9E63;
     border-bottom: 1px solid #BF9E63;
     padding: 5px;
 }
-.recipeHistory table {
+.recipeLearnersHistory table {
     border-collapse: collapse;
 }
-.recipeHistory td:last-child {
+.recipeLearnersHistory td:last-child {
     border-right: 0;
 }
-
 
 
 
@@ -477,7 +499,7 @@ hr {
     width: 100vw;
     height: 100vh;
     display: none;
-    background-color: green;
+    background-color: #222222;
     position: fixed;
     top: 0;
     left: 0;
@@ -485,17 +507,57 @@ hr {
 }
 
 @media screen and (max-width: 1100px) {
-    .smallScreen {
+    .smallScreen{
         display: flex;
         color: white;
         justify-content: center;
         align-items: center;
         width: 100vw;
         height: 100vh;
-        background-color: black;
+        background-color: #222222;
         position: fixed;
         top: 0;
         left: 0;
         z-index: 1;
+        
     }
+    
+    /* index */
+    .logincontainer, .titre_soustitre, .titre, .imagelogin, .imagelogin img, .header, label, input {
+        display:none;
+    }
+
+    /* ----------------------WELCOME PAGE--------------------------- */
+    .welcomeName, .welcomeHeader,.welcomeSubtitle,.welcomeTraitgauche {
+        display:none; 
+    }
+
+    /* ========= ATTENDANCES ============ */
+    .attendanceSec,
+    .date,
+    .attendances,
+    .attendanceLeft,
+    .attendanceRight,
+    .attendanceLeft:hover,
+    .attendanceRight:hover,
+    .attendanceRight>p:nth-child(1),
+    .attendanceLeft>p:nth-child(1),
+    .attendanceRight>p span,
+    .attendanceLeft>p span,
+    .attendanceRight>button,
+    .attendanceLeft>button,
+    .attendanceRight>button:hover,
+    .attendanceLeft>button:hover,
+    .attendanceRight>p:nth-child(3),
+    .attendanceLeft>p:nth-child(3){
+    display:none;
+    }
+
+    /* PROFIL PAGE */
+
+    .topnav, .profileHeader, .profileName, .infos, .profileContent, .Contenu_Presence_recette {
+    display:none;
+}
+
+
 }

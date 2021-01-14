@@ -11,8 +11,9 @@ try {
     $requestAttendances->execute(array($_SESSION['today']));
 
 ?>
-
-    <div class="attendanceHistory">
+<div class="Contenu_Presence_recette ">
+    <div class="attendanceChefHistory">
+    <h2>Learners Attendances</h2>
         <table>
             <tr>
                 <th>Firstname</th>
@@ -34,3 +35,4 @@ try {
         ?>
         </table>
     </div> 
+</div>

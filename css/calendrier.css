@@ -134,3 +134,36 @@ html{
     background-color: #BF9E63;
     color: black;
 }
+
+/* RESPONSIVE */
+
+.smallScreen {
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    background-color: #222222;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+@media screen and (max-width: 1100px) {
+    .smallScreen{
+        display: flex;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        background-color: #222222;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+.topnav, .contenaireCalendrier, .addEventButton, .calendrier{
+    display:none;
+}
+}
