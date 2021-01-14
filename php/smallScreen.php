@@ -1,3 +1,4 @@
 <div class="smallScreen">
-    <img src="https://media-exp1.licdn.com/dms/image/C4D03AQGcdB037KI_Kg/profile-displayphoto-shrink_200_200/0/1605357511437?e=1616025600&v=beta&t=ktSHGMANN9UIDubWG3mAnvib_DP2LEp5Rr0a2YpqvHA" alt="" srcset="">
+    <img src="https://github.com/Sifedine-Hajji/my.bocuse-project/blob/JoelleV5/assets/img/responsive.jpg?raw=true" alt="" srcset="" width="400px">
+    
 </div> 

@@ -11,9 +11,7 @@ body {
     font-family: 'Montserrat Alternates', sans-serif;
 
 }
-#loginpage {
-    background-image: linear-gradient(283deg, rgba(228, 228, 228,0.04) 0%, rgba(228, 228, 228,0.04) 30%,rgba(130, 130, 130,0.04) 30%, rgba(130, 130, 130,0.04) 49%,rgba(31, 31, 31,0.04) 49%, rgba(31, 31, 31,0.04) 100%),linear-gradient(297deg, rgba(228, 228, 228,0.04) 0%, rgba(228, 228, 228,0.04) 20%,rgba(130, 130, 130,0.04) 20%, rgba(130, 130, 130,0.04) 60%,rgba(31, 31, 31,0.04) 60%, rgba(31, 31, 31,0.04) 100%),linear-gradient(242deg, rgba(228, 228, 228,0.04) 0%, rgba(228, 228, 228,0.04) 29%,rgba(130, 130, 130,0.04) 29%, rgba(130, 130, 130,0.04) 48%,rgba(31, 31, 31,0.04) 48%, rgba(31, 31, 31,0.04) 100%),linear-gradient(90deg, rgb(0,0,0),rgb(0,0,0));
-}
+
 
 /* Login Animation */
 
@@ -475,7 +473,7 @@ hr {
     width: 100vw;
     height: 100vh;
     display: none;
-    background-color: green;
+    background-color: #222222;
     position: fixed;
     top: 0;
     left: 0;
@@ -483,17 +481,42 @@ hr {
 }
 
 @media screen and (max-width: 1100px) {
-    .smallScreen {
+    .smallScreen{
         display: flex;
         color: white;
         justify-content: center;
         align-items: center;
         width: 100vw;
         height: 100vh;
-        background-color: black;
+        background-color: #222222;
         position: fixed;
         top: 0;
         left: 0;
         z-index: 1;
+        
     }
+    
+    
+    .logincontainer, .titre_soustitre, .titre  {
+        display:none;
+    }
+    .titre_soustitre {
+        display:none;
+    }
+    .titre {
+        display:none;
+    }
+    .imagelogin {
+        display:none;
+    }
+    .imagelogin img {
+        display:none;
+    }
+    .header {
+        display:none;
+    }
+    label{
+        display:none;
+    }
+    
 }
