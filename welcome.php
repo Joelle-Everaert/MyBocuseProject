@@ -26,6 +26,9 @@ die('Erreur : ' . $e->getMessage());
 </head>
 
 <body>
+<?php
+    include("./php/smallScreen.php");
+    ?>
     <!-- ======================= NAVBAR ============================================= -->
     <nav class="topnav">
         <a class="logo" href="../index.php"><img src="./assets/img/logo.png" alt="" width="25px" height="18px"

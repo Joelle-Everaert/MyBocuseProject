@@ -313,15 +313,8 @@ input[type=submit]:hover {
 }
 
 /* Titre */
-
-.profileTitle {
-    text-align: center;
-    color: black;
-    font-family: 'Playfair Display', serif;
-    
-}
 .profileName {
-    margin: 0 20px 0 60px;
+    margin: 20px 20px 0 60px;
     color: white;
     display: inline-block;
 }
@@ -428,4 +421,79 @@ hr {
 .Contenu_Presence_recette { 
     display: flex;
     color: white;
+    text-align: center;
+    justify-content: center;
+    justify-content: space-around;
+}
+.Contenu_Presence_recette table {
+    text-align: center;
+}
+.Contenu_Presence_recette h2 {
+    background-color:#BF9E63;
+    margin-top:0 ;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.attendanceHistory {
+    border: 1px solid #BF9E63;
+    border-radius: 15px;
+    overflow: auto;
+}
+.attendanceHistory::-webkit-scrollbar {
+    display: none;
+}
+.attendanceHistory td {
+    border-right: 1px solid #BF9E63;
+    border-bottom: 1px solid #BF9E63;
+}
+.attendanceHistory td:last-child {
+    border-right: 0;
+}
+.recipeHistory {
+    border: 1px solid #BF9E63;
+    border-radius: 15px;
+    overflow: auto;
+    height: 300px;
+}
+.recipeHistory::-webkit-scrollbar {
+    display: none;
+}
+.recipeHistory td {
+    border-right: 1px solid #BF9E63;
+    border-bottom: 1px solid #BF9E63;
+    padding: 5px;
+}
+.recipeHistory td:last-child {
+    border-right: 0;
+}
+
+
+
+
+/* ------------------------------Small Screen-------------------------- */
+.smallScreen {
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    background-color: green;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+@media screen and (max-width: 1100px) {
+    .smallScreen {
+        display: flex;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        background-color: black;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
 }

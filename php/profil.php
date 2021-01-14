@@ -32,6 +32,9 @@ try {
 </head>
 
 <body class="profileBody">
+<?php
+    include("../php/smallScreen.php");
+?> 
     <!-- ======================= NAVBAR ============================================= -->
     <nav class="topnav">
         <a class="logo" href="../index.php"><img src="../assets/img/logo.png" alt="" width="25px" height="18px"
@@ -40,7 +43,6 @@ try {
         </div>
     </nav>
 
-    <h1 class="profileTitle">Check your profile</h1>
     <h2 class="profileName"><i class="fas fa-user"></i> <?php echo $_SESSION['name']. " " .$_SESSION['surname'];?> </h2>
     <section class="contenuProfil">
         <div class="profileHeader">
@@ -92,10 +94,11 @@ try {
                 </tr>
                 <?php
                 while ($answerAttendancesUser = $requestAttendanceUser->fetch()) {
-                echo "<tr>
-                <td>" . $answerAttendancesUser['date']. "</td>
-                <td>" . $answerAttendancesUser['attendance_morning'] . "</td>
-                <td>" . $answerAttendancesUser['attendance_evening'] . "</td>
+                echo 
+                "<tr>
+                    <td>" . $answerAttendancesUser['date']. "</td>
+                    <td>" . $answerAttendancesUser['attendance_morning'] . "</td>
+                    <td>" . $answerAttendancesUser['attendance_evening'] . "</td>
                 </tr>" ;
                 };
                 ?>
@@ -104,7 +107,7 @@ try {
 
         </div>
 
-        <div class="attendanceHistory">
+        <div class="recipeHistory">
             <h2>Recipes history</h2>
             <table>
                 <tr>
@@ -115,10 +118,10 @@ try {
                 <?php
         while ($answerRecipeUser = $requestRecipeUser->fetch()) {
             echo "<tr>
-     <td>" . $answerRecipeUser['date']. "</td>
-    <td>" . $answerRecipeUser['title_watch'] . "</td>
-    <td>" . $answerRecipeUser['description'] . "</td>
-  </tr>" ;
+        <td>" . $answerRecipeUser['date']. "</td>
+        <td>" . $answerRecipeUser['title_watch'] . "</td>
+        <td>" . $answerRecipeUser['description'] . "</td>
+        </tr>" ;
         };
         
         ?>

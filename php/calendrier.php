@@ -25,6 +25,9 @@ include('../secret.php');
     <script src="https://kit.fontawesome.com/08f226ae60.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<?php
+    include("../php/smallScreen.php");
+    ?>
     <nav class="topnav">
         <a class="logo" href="../index.php"><img src="../assets/img/logo.png" alt="" width="25px" height="18px"
                 style="filter: invert();">MyBocuse</a>

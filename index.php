@@ -27,6 +27,9 @@ include('secret.php');
 </head>
 
 <body id="loginpage">
+<?php
+    include("./php/smallScreen.php");
+    ?>
     <section class="header">
         <div class="logincontainer">
             <div class="titre_soustitre">
