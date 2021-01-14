@@ -2,10 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates&display=swap');
+
 html {
     width: 100%;
     height: 100%;
 }
+
 body {
     background-image: linear-gradient(283deg, rgba(228, 228, 228,0.04) 0%, rgba(228, 228, 228,0.04) 30%,rgba(130, 130, 130,0.04) 30%, rgba(130, 130, 130,0.04) 49%,rgba(31, 31, 31,0.04) 49%, rgba(31, 31, 31,0.04) 100%),linear-gradient(297deg, rgba(228, 228, 228,0.04) 0%, rgba(228, 228, 228,0.04) 20%,rgba(130, 130, 130,0.04) 20%, rgba(130, 130, 130,0.04) 60%,rgba(31, 31, 31,0.04) 60%, rgba(31, 31, 31,0.04) 100%),linear-gradient(242deg, rgba(228, 228, 228,0.04) 0%, rgba(228, 228, 228,0.04) 29%,rgba(130, 130, 130,0.04) 29%, rgba(130, 130, 130,0.04) 48%,rgba(31, 31, 31,0.04) 48%, rgba(31, 31, 31,0.04) 100%),linear-gradient(90deg, rgb(0,0,0),rgb(0,0,0));
     font-family: 'Montserrat Alternates', sans-serif;
@@ -21,15 +23,18 @@ footer {
 .logincontainer {
     align-items: center;
 }
+
 .titre_soustitre {
     color: white;
     width: 600px;
     text-align: center;
 }
+
 .titre {
     font-size: 70px;
     font-family: 'Playfair Display', serif;
 }
+
 .imagelogin {
     display: inline-block;
 }
@@ -37,12 +42,14 @@ footer {
     width:700px;
     height: 100vh;
 }
+
 .header {
     display: flex;
     height: 96vh;
     justify-content: space-between;
 }
-label{
+
+label {
     color: white;
 }
 
@@ -63,13 +70,17 @@ label{
     color: white;
     
 }
+
 form {
-    width:100%;
+    width: 100%;
 }
+
 label {
     color: white;
 }
-input[type=text], input[type=password] {
+
+input[type=text],
+input[type=password] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -89,6 +100,7 @@ input[type=submit] {
     cursor: pointer;
     width: 100%;
 }
+
 input[type=submit]:hover {
     background-color: #BF9E63;
     color: black;
@@ -101,15 +113,18 @@ input[type=submit]:hover {
     margin-left: 30px;
     font-family: 'Playfair Display', serif;
 }
+
 .welcomeHeader {
     display: flex;
     justify-content: space-between;
     height: 80vh;
 }
+
 .welcomeSubtitle {
     color: white;
     text-align: center;
 }
+
 .welcomeTraitgauche {
     border-left: 2px solid #BF9E63; 
     height: 400px; 
@@ -135,6 +150,7 @@ input[type=submit]:hover {
     justify-content: space-around ;
     
 }
+
 .attendanceLeft,
 .attendanceRight {
     display: flex;
@@ -149,21 +165,25 @@ input[type=submit]:hover {
     height: 300px;
     box-shadow: 2px 2px 5px rgba(94, 94, 94, 0.329);
 }
+
 .attendanceLeft:hover {
     transform: scale(1.05);
 }
 .attendanceRight:hover {
     transform: scale(1.05);
 }
+
 .attendanceRight>p:nth-child(1),
 .attendanceLeft>p:nth-child(1) {
     font-size: 30px;
     margin-bottom: 100px;
 }
+
 .attendanceRight>p span,
 .attendanceLeft>p span {
     color: #BF9E63;
 }
+
 .attendanceRight>button,
 .attendanceLeft>button {
     border: 1px solid white;
@@ -173,6 +193,7 @@ input[type=submit]:hover {
     padding: 5px 10px 5px 10px;
     cursor: pointer;
 }
+
 .attendanceRight>button:hover,
 .attendanceLeft>button:hover {
 
@@ -194,6 +215,7 @@ input[type=submit]:hover {
     justify-content: center;
     align-items: center;
 }
+
 .addEventButton {
     padding: 10px;
     margin-left: 30px;
@@ -204,6 +226,7 @@ input[type=submit]:hover {
     cursor: pointer;
     border-radius: 15px;
 }
+
 .addEventButton:hover {
     background-color: #BF9E63;
     color: black;
@@ -218,10 +241,12 @@ input[type=submit]:hover {
     border-radius: 15px;
     cursor: pointer;
 }
+
 .viewCalendarButton a {
     text-decoration: none;
     color: white;
 }
+
 .viewCalendarButton:hover {
     background-color: #BF9E63;
 }
@@ -229,6 +254,7 @@ input[type=submit]:hover {
     color: black;
     
 }
+
 .viewCalendarButton a:visited {
     display: none;
 }
@@ -243,10 +269,12 @@ input[type=submit]:hover {
     height: 42vh;
     box-shadow: 2px 2px 5px black;
 }
+
 .formContent {
     display: flex;
     flex-direction: column;
 }
+
 .formContent label {
     margin-bottom: 5px;
 }
@@ -258,6 +286,7 @@ input[type=submit]:hover {
     margin-bottom: 8px;
     padding: 5px;
 }
+
 .formContent textarea {
     height: 15vh;
     background-color:rgba(0, 0, 0, 0.199);
@@ -266,6 +295,7 @@ input[type=submit]:hover {
     border-radius: 15px;
     margin-bottom: 5px;
 }
+
 .formContent button {
     width: 80px;
     background-color: rgba(0, 0, 0, 0.986);
@@ -275,10 +305,12 @@ input[type=submit]:hover {
     padding: 2px;
     border-radius: 10px;
 }
+
 .formContent button:hover {
     color: black;
     background-color: #BF9E63;
 }
+
 /* ====================================== PROFILE ================================== */
 
 .profileBody {
@@ -291,10 +323,11 @@ input[type=submit]:hover {
     overflow: hidden;
     background-color: rgba(0, 0, 0, 0.986);
 }
-  
+
 .topnav .logo {
-      float: left;
+    float: left;
 }
+
 .topnav a {
     float: right;
     color: #f2f2f2;
@@ -303,7 +336,7 @@ input[type=submit]:hover {
     text-decoration: none;
     font-size: 17px;
 }
-  
+
 .topnav a:hover {
     background-color: #BF9E63;
     color: black;
@@ -322,14 +355,15 @@ input[type=submit]:hover {
 }
 
 /* CONTENU PROFILE */
-.profileHeader{
+.profileHeader {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 250px;
     height: 40vh;
-    margin-top: 30px; 
+    margin-top: 30px;
 }
+
 .editButton {
     background-color: rgba(0, 0, 0, 0.986);
     color: #BF9E63;
@@ -338,26 +372,27 @@ input[type=submit]:hover {
     border: 1px solid rgba(0, 0, 0, 0.986);
     border-radius: 10px;
 }
-.profile-pic-div{
+
+.profile-pic-div {
     border-radius: 10px;
     width: 200px;
     margin: 100px 20px 0 120px;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     border-radius: 50%;
     overflow: hidden;
     border: 1px solid grey;
 }
 
-#photo{
+#photo {
     height: 100%;
     width: 100%;
 }
 
-#file{
+#file {
     display: none;
 }
 
-#uploadBtn{
+#uploadBtn {
     height: 40px;
     width: 100%;
     position: absolute;
@@ -373,48 +408,60 @@ input[type=submit]:hover {
     cursor: pointer;
     display: none;
 }
+
 .traitgauche {
-    border-left: 2px solid #BF9E63; 
-    height: 200px; 
+    border-left: 2px solid #BF9E63;
+    height: 200px;
     display: inline-block;
 }
+
 .contenuProfil {
     display: flex;
     height: 35vh;
     background-color: rgba(0, 0, 0, 0.808);
     margin: 0 50px 0 50px;
 }
+
 .contenuProfil .infos {
     margin-left: 10px;
     font-size: 15px;
     color: white;
 }
+
 .profileInformations {
     display: flex;
     margin-top: 30px;
 }
+
 .profileContent {
     color: #BF9E63;
 }
+
 .reseaux {
     font-size: 15px;
     margin: 0;
 }
+
 .reseaux a {
     color: white;
 }
+
 .reseaux .insta:hover {
     color: #BF9E63;
 }
+
 .reseaux .facebook:hover {
     color: #BF9E63;
 }
+
 .reseaux .linkedin:hover {
     color: #BF9E63;
 }
+
 .reseaux a:visited {
     display: none;
 }
+
 hr {
     margin: 10px 50px 5px 50px;
 }
@@ -450,6 +497,7 @@ hr {
     justify-content: space-around;
     height: 50vh;
 }
+
 .Contenu_Presence_recette table {
     text-align: center;
 }
@@ -491,6 +539,7 @@ hr {
     border-right: 1px solid #BF9E63;
     border-bottom: 1px solid #BF9E63;
     padding: 5px;
+
 }
 .recipeLearnersHistory table {
     border-collapse: collapse;

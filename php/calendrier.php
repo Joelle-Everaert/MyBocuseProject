@@ -21,17 +21,18 @@ die('Erreur : ' . $e->getMessage());
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/normalize.css">
-    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/calendrier.css">
+    <link rel="stylesheet" href="../css/style.css">
+
     <script src="https://kit.fontawesome.com/08f226ae60.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-<?php
-    include("../php/smallScreen.php");
-    ?>
+    <!-- <?php
+            include("../php/smallScreen.php");
+            ?> -->
     <nav class="topnav">
-        <a class="logo" href="../index.php"><img src="../assets/img/logo.png" alt="" width="25px" height="18px"
-                style="filter: invert();">MyBocuse</a>
+        <a class="logo" href="../index.php"><img src="../assets/img/logo.png" alt="" width="25px" height="18px" style="filter: invert();">MyBocuse</a>
         <a href="./logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
         <a href="../php/profil.php"><i class="fas fa-user"></i></i> Profile</a>
         </div>
@@ -44,7 +45,7 @@ die('Erreur : ' . $e->getMessage());
         <div class="calendrier">
             <div class="mois">
                 <i class="fas fa-angle-left prev"></i>
-                <div class="date">
+                <div class="date" dayDiv.children[0].innerHTML>
                     <h1></h1>
                     <p></p>
                 </div>
@@ -67,17 +68,17 @@ die('Erreur : ' . $e->getMessage());
     </div>
     <?php
 // Recupéré session de calendrier
-    $req = $bdd->prepare('SELECT id_user FROM Students WHERE email = ?');
-    $req->execute([
-        $_SESSION['email']
-    ]);
-    $data = $req->fetch(); 
+$req = $bdd->prepare('SELECT id_user FROM Students WHERE email = ?');
+$req->execute([
+    $_SESSION['email']
+]);
+$data = $req->fetch();
 
-    $req-> closeCursor();  
+$req->closeCursor();
 
-    $_SESSION['idUser'] = $data['id_user'];
+$_SESSION['idUser'] = $data['id_user'];
 
-if(!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['description'])){
+if (!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['description'])) {
     $req = $bdd->prepare('INSERT INTO watch_recipe (FK_id_user, title_watch, date, description) VALUES (?, ?, ?, ?)') or die(print_r($bdd->errorInfo()));
     $req->execute([
         $_SESSION['idUser'],
@@ -85,19 +86,19 @@ if(!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['des
         strip_tags(trim($_POST['date'])),
         strip_tags(trim($_POST['description'])),
     ]);
-    $req-> closeCursor();  
+    $req->closeCursor();
 ?>
 
     <h1> C'est encoder ;-)</h1>
 
-<?php 
-    
-}else{
-?> 
+<?php
+
+} else {
+?>
 
     <div class="form-popup" id="myForm" style="display:none">
         <form class = "formContent" action="" method="POST">
-            <h1>Add a watch</h1>
+            <h1>Add a recipe</h1>
 
             <label for="email">Title</label>
             <input type="text" placeholder="Title" name="title_watch">
@@ -111,8 +112,8 @@ if(!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['des
             <button type="submit" class="btn">Enter</button>
         </form>
     </div>
-    
-    
+
+
 <?php
 }
 ?>

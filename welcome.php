@@ -23,6 +23,7 @@ die('Erreur : ' . $e->getMessage());
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://kit.fontawesome.com/08f226ae60.js" crossorigin="anonymous"></script>
 
+
     <title>MyBocus</title>
 </head>
 
