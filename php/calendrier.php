@@ -33,7 +33,7 @@ die('Erreur : ' . $e->getMessage());
         <a class="logo" href="../index.php"><img src="../assets/img/logo.png" alt="" width="25px" height="18px"
                 style="filter: invert();">MyBocuse</a>
         <a href="./logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
-        <a href="./profil.php"><i class="fas fa-user"></i></i> Profile</a>
+        <a href="../php/profil.php"><i class="fas fa-user"></i></i> Profile</a>
         </div>
     </nav>
     <div class="calendarTitle">
@@ -65,11 +65,7 @@ die('Erreur : ' . $e->getMessage());
             <button class="addEventButton">Add a recipe</button>
         </div>
     </div>
-    
-</body>
-</html>
-
-<?php
+    <?php
 // Recupéré session de calendrier
     $req = $bdd->prepare('SELECT id_user FROM Students WHERE email = ?');
     $req->execute([
@@ -100,7 +96,7 @@ if(!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['des
 ?> 
 
     <div class="form-popup" id="myForm" style="display:none">
-        <form action="" method="POST">
+        <form class = "formContent" action="" method="POST">
             <h1>Add a watch</h1>
 
             <label for="email">Title</label>
@@ -120,6 +116,14 @@ if(!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['des
 <?php
 }
 ?>
+
+<?php
+    include("../php/footer.php");
+?>
+</body>
+</html>
+
+
 <script src="../js/calendrier.js"></script>
 <script src="../js/recipe.js"></script>
 </body>

@@ -10,7 +10,7 @@
         <div class="attendanceRight">
             <p>Evening</p>
             <button class="buttonAttendanceRight"> 17:00 </button>
-            <p>Active from <span>17/00</span> to <span>21:00</span>.</p>
+            <p>Active from <span>17:00</span> to <span>21:00</span>.</p>
         </div>
     </div>
 
