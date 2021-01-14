@@ -1,6 +1,29 @@
 <?php
 session_start();
+
+include('../secret.php');
+
+// requete pour recupérer recette liste
+
+try{
+    $bdd= new PDO("mysql:host=localhost;dbname=uaanzmse_mybocus;charset=utf8", $user, $pwd, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+}
+catch (Exception $e)
+{
+die('Erreur : ' . $e->getMessage());
+}
+
+
+// /!!\ Changement today
+
+    $requestAttendanceUser = $bdd->prepare('SELECT date, attendance_morning, attendance_evening FROM attendanceTimes WHERE fk_id_user = ?');
+    $requestAttendanceUser->execute(array($_SESSION['idUser']));
+
+    $requestRecipeUser = $bdd->prepare('SELECT date, title_watch, description FROM watch_recipe WHERE FK_id_user = ?');
+    $requestRecipeUser->execute(array($_SESSION['idUser']));
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +36,11 @@ session_start();
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://kit.fontawesome.com/08f226ae60.js" crossorigin="anonymous"></script>
 </head>
+
 <body class="profileBody">
+<?php
+    include("../php/smallScreen.php");
+?> 
     <!-- ======================= NAVBAR ============================================= -->
     <nav class="topnav">
         <a class="logo" href="../index.php"><img src="../assets/img/logo.png" alt="" width="25px" height="18px"
@@ -21,12 +48,11 @@ session_start();
         <a href="./logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
         </div>
     </nav>
-    
-    <h1 class="profileTitle">Check your profile</h1>
+
     <h2 class="profileName"><i class="fas fa-user"></i> <?php echo $_SESSION['name']. " " .$_SESSION['surname'];?> </h2>
     <section class="contenuProfil">
         <div class="profileHeader">
-            
+
             <div class="profile-pic-div">
                 <img src="../assets/img/image.jpg" id="photo">
                 <input type="file" id="file">
@@ -47,20 +73,33 @@ session_start();
                     <a href="#"><i class="fab fa-2x fa-linkedin linkedin"></i></a>
                 </div>
             </div>
+            <?php
+    $birthday = $_SESSION['birthday'];
+    $day = date("Y-m-d");
+    $diff = date_diff(date_create($birthday), date_create($day));
+?>
             <div class="profileContent">
-                <h3>22ans</h3>
-                <h3>Bocuse 1.5</h3>
+                <h3><?php echo $diff->format('%y')?> ans</h3>
+                <h3><?php echo $_SESSION['promo']?></h3>
                 <h3>+32 000 00 00</h3>
-                <h3> Ericlambda01@gmail.com</h3>
+                <h3> <?php echo $_SESSION['email']?></h3>
             </div>
         </div>
     </section>
     <hr>
-    <section class="Contenu_Presence_recette" >
-        <h2>Attendances</h2>
-    </section>
+
+        <?php
+
+        if($_SESSION['account_type'] == 'student'){
+        include('./presenceRecettes.php');        
+        } 
+        ?>
     
+    <?php
+    include("../php/footer.php");
+?>
     <script src="../js/edit.js"></script>
     <script src="../js/addProfilePic.js"></script>
 </body>
+
 </html>
