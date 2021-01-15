@@ -58,22 +58,6 @@ if(isset($_POST['email']) && isset($_POST['password'])){
     }
 }
 
-
-                if (!empty($data)) {
-                    if (password_verify($_POST['password'], $data['password'])) { // attention
-                        $_SESSION['SessionOK'] = true;
-                        $_SESSION['email'] = $data['email'];
-                        $_SESSION['account_type'] = $data['account_type'];
-                        $_SESSION['name'] = $data['name'];
-                        $_SESSION['surname'] = $data['surname'];
-
-                        // /!!\ Changement today
-                        $_SESSION['today'] = date("Y-m-d");
-                    }
-                }
-            
-
-
             if ($_SESSION) {
                 header("Location: ./welcome.php");
             } else {
