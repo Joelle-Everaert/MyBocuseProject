@@ -76,18 +76,20 @@ die('Erreur : ' . $e->getMessage());
 
             $_SESSION['idUser'] = $data['id_user'];
 
-            if (!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['description'])) {
+            if(!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['description'])){
                 $req = $bdd->prepare('INSERT INTO watch_recipe (FK_id_user, title_watch, date, description) VALUES (?, ?, ?, ?)') or die(print_r($bdd->errorInfo()));
                 $req->execute([
-                    $_SESSION['idUser'],
-                    strip_tags(trim($_POST['title_watch'])),
-                    strip_tags(trim($_POST['date'])),
-                    strip_tags(trim($_POST['description'])),
+                $_SESSION['idUser'],
+                strip_tags(trim($_POST['title_watch'])),
+                strip_tags(trim($_POST['date'])),
+                strip_tags(trim($_POST['description'])),
                 ]);
-                $req->closeCursor();
-            ?>
+                $title_recipe = $_POST['title_watch'];
+                $req-> closeCursor();  
+    
+                echo "<h4 style='color:white;text-align:center;'> Ta recette \" ". $title_recipe ." \" est enrigistrée </h4>";
+                ?>
 
-                <h1> C'est encoder ;-)</h1>
 
             <?php
 
