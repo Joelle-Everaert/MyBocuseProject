@@ -40,6 +40,11 @@ We used a [Trello](https://trello.com/b/wizIgsmq/my-bocuse) to keep each other i
 ## Overview 
 ![overview](./assets/img/overview1.png)
 
+## Improve
+* Block check-in and check-out
+* Update javascript regarding futur and past months in the calendar
+* A real responsive
+* ... 
 
 ## Website HOST
 We use Planet Hoster <br/>
