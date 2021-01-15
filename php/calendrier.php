@@ -63,31 +63,29 @@ die('Erreur : ' . $e->getMessage());
             <div class="jours"></div>
         </div>
         <div class="contenaireEvetButton">
-            <button class="addEventButton">Add a recipe</button>
-        </div>
-    </div>
-    <?php
-// Recupéré session de calendrier
-$req = $bdd->prepare('SELECT id_user FROM Students WHERE email = ?');
-$req->execute([
-    $_SESSION['email']
-]);
-$data = $req->fetch();
+        <button class="addEventButton">Add a recipe</button>
+            <?php
+            // Recupéré session de calendrier
+            $req = $bdd->prepare('SELECT id_user FROM Students WHERE email = ?');
+            $req->execute([
+                $_SESSION['email']
+            ]);
+            $data = $req->fetch();
 
-$req->closeCursor();
+            $req->closeCursor();
 
-$_SESSION['idUser'] = $data['id_user'];
+            $_SESSION['idUser'] = $data['id_user'];
 
-if (!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['description'])) {
-    $req = $bdd->prepare('INSERT INTO watch_recipe (FK_id_user, title_watch, date, description) VALUES (?, ?, ?, ?)') or die(print_r($bdd->errorInfo()));
-    $req->execute([
-        $_SESSION['idUser'],
-        strip_tags(trim($_POST['title_watch'])),
-        strip_tags(trim($_POST['date'])),
-        strip_tags(trim($_POST['description'])),
-    ]);
-    $req->closeCursor();
-?>
+            if (!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['description'])) {
+                $req = $bdd->prepare('INSERT INTO watch_recipe (FK_id_user, title_watch, date, description) VALUES (?, ?, ?, ?)') or die(print_r($bdd->errorInfo()));
+                $req->execute([
+                    $_SESSION['idUser'],
+                    strip_tags(trim($_POST['title_watch'])),
+                    strip_tags(trim($_POST['date'])),
+                    strip_tags(trim($_POST['description'])),
+                ]);
+                $req->closeCursor();
+            ?>
 
                 <h1> C'est encoder ;-)</h1>
 
@@ -96,9 +94,9 @@ if (!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['de
             } else {
             ?>
 
-    <div class="form-popup" id="myForm" style="display:none">
-        <form class = "formContent" action="" method="POST">
-            <h1>Add a recipe</h1>
+                <div class="form-popup" id="myForm" style="display:none">
+                    <form class="formContent" action="" method="POST">
+                        <h1>Add a watch</h1>
 
                         <label for="email">Title</label>
                         <input type="text" placeholder="Title" name="title_watch">
@@ -119,6 +117,7 @@ if (!empty($_POST['title_watch']) && !empty($_POST['date']) && !empty($_POST['de
             ?>
         </div>
     </div>
+
 
     <?php
 
