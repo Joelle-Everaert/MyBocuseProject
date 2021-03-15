@@ -49,7 +49,7 @@ We used a [Trello](https://trello.com/b/wizIgsmq/my-bocuse) to keep each other i
 ## Website HOST
 We use Planet Hoster <br/>
 Click here to access at 
-[MyBocus](https://joelle-login-page.go.yo.fr/index.php)
+[MyBocus](http://mybocuz.rf.gd/?i=1)
 <br/>
 <hr><hr>
 DISCLAIMER - fair use, this exercice is for educational purpose only.
